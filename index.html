@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="boxcontainer">
+    <div class="container"> 
+        <div class="heading">
+            <h1>  Random  <br> Password Genrator</h1>
+        </div>
+
+        <div class="inputcontainer">
+            <input type="text" id="inputgenrator" placeholder="Your Password....">
+        </div>
+        <div class="btn-box">
+            <button id="btn">Genrator</button>
+        </div>
+    </div>
+</div> 
+<script>
+    let inputbox = document.querySelector("#inputgenrator");
+    let button = document.querySelector("#btn");
+    let length = 12;
+    let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let lowercase = "abcdefghijklmnopqrstuvwxyz";
+    let number = "1234567890";
+    let symbols = "!@#$%^&*()_";
+
+    let allchars = uppercase+lowercase+number+symbols;
+    button.addEventListener('click', ()=>{
+        let Password = "";
+        Password += uppercase[Math.floor(Math.random()*uppercase.length)]
+        Password += lowercase[Math.floor(Math.random()*lowercase.length)]
+        Password += number[Math.floor(Math.random()*number.length)]
+        Password += symbols[Math.floor(Math.random()*symbols.length)]
+
+        while(length>Password.length){
+            Password += allchars[Math.floor(Math.random()*allchars.length)]
+        }
+        inputbox.value = Password;
+
+    })
+</script>
+    
+</body>
+</html>
